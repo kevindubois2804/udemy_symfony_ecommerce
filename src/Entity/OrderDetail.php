@@ -90,6 +90,13 @@ class OrderDetail
         return $this->productPrice;
     }
 
+    public function getProductPriceWt(): ?float
+    {
+        $coeff = 1 + ($this->productTva / 100);
+
+        return $coeff * $this->productPrice;
+    }
+
     public function setProductPrice(float $productPrice): static
     {
         $this->productPrice = $productPrice;
